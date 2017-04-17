@@ -1,0 +1,38 @@
+
+def court_over_time(years):
+    court = {}
+    for i in range(9):
+        court[i] = 0
+    Senate = randint(1,2)
+    Pres = randint(1,2)
+    v = 0
+
+    for i in range(years):
+        if years % 4 == 0:
+            Pres = randint(1,2)
+        if years % 2 == 0:
+            Senate = randint(1,2)
+        x = False
+        if Senate == Pres:
+            x = True
+        for key in court:
+            court[key] -= 1
+            if court[key] <= 0:
+                if x == True:
+                    court[key] = randint(0,40)
+    for key in court:
+        if court[key] <= 0:
+            v += 1
+    return v
+
+def over_time_over_time(years, times):
+    total_v = 0
+    for i in range(times):
+        total_v += court_over_time(years)
+    times = float(times)
+    return total_v / times
+
+print over_time_over_time(10000,10000)
+print over_time_over_time(10000,10000)
+print over_time_over_time(10000,10000)
+print over_time_over_time(10000,10000)
