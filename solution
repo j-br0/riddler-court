@@ -4,17 +4,17 @@ def court_over_time(years):
     court = {}
     for i in range(9):
         court[i] = 0
-    Senate = randint(1,2)
-    Pres = randint(1,2)
+    senate = randint(1,2)
+    pres = randint(1,2)
     v = 0
 
     for i in range(years):
         if years % 4 == 0:
-            Pres = randint(1,2)
+            pres = randint(1,2)
         if years % 2 == 0:
-            Senate = randint(1,2)
+            senate = randint(1,2)
         x = False
-        if Senate == Pres:
+        if senate == pres:
             x = True
         for key in court:
             court[key] -= 1
